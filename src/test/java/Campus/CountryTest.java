@@ -119,7 +119,7 @@ public class CountryTest {
                 .delete("/school-service/api/countries/{countryId}")
 
                 .then()
-                .statusCode(200);
+                .statusCode(201);
     }
 
     /** delete country negative test */
