@@ -196,8 +196,8 @@ public class ZippoTest {
         }
     }
 
-    RequestSpecification requestSpec;
-    ResponseSpecification responseSpec;
+    RequestSpecification requestSpec; // we use this the code reuse ability every test has the same
+    ResponseSpecification responseSpec; // assigned before class the code then we can call the in the @tests
 
     @BeforeClass
     public void setup() {
@@ -264,14 +264,14 @@ public class ZippoTest {
     @Test
     public void extractData1() {
         int limit = given()
-                .param("page", 2)
+                .param("page", 2) // "?" after "page and 2" this is just param
 
                 .when()
                 .get("/users")
                 .then()
                 .log().body()
                 .statusCode(200)
-                .extract().path("meta.pagination.limit");
+                .extract().path("meta.pagination.limit"); // this has no [] that's why ...
         System.out.println("limit " + limit);
         Assert.assertEquals(limit, 10, "Test is failed");
     }
